@@ -11,16 +11,13 @@ using User_Service.Models.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-
 // Register DbContext and Repositories
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
+
 // Register Services
 builder.Services.AddScoped<IAuthService, AuthService>();
 

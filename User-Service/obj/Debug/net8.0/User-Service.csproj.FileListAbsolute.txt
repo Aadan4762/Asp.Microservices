@@ -149,3 +149,4 @@
 /home/adan/Asp.Microservices/User-Service/obj/Debug/net8.0/User-Service.pdb
 /home/adan/Asp.Microservices/User-Service/obj/Debug/net8.0/User-Service.genruntimeconfig.cache
 /home/adan/Asp.Microservices/User-Service/obj/Debug/net8.0/ref/User-Service.dll
+/home/adan/Asp.Microservices/User-Service/obj/Debug/net8.0/User-Service.sourcelink.json

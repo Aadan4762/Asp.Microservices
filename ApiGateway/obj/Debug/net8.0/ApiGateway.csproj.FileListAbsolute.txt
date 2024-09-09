@@ -41,3 +41,12 @@
 /home/adan/Asp.Microservices/ApiGateway/obj/Debug/net8.0/ApiGateway.pdb
 /home/adan/Asp.Microservices/ApiGateway/obj/Debug/net8.0/ApiGateway.genruntimeconfig.cache
 /home/adan/Asp.Microservices/ApiGateway/obj/Debug/net8.0/ref/ApiGateway.dll
+/home/adan/Asp.Microservices/ApiGateway/obj/Debug/net8.0/ApiGateway.sourcelink.json
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/adan/Asp.Microservices/ApiGateway/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

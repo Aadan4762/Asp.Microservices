@@ -12,7 +12,7 @@ using User_Service.Data;
 namespace User_Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240905125945_InitialCreate")]
+    [Migration("20240909071451_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace User_Service.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "12b05e8b-76a1-4705-bbae-13cf15dd0abc",
+                            Id = "a6cec11e-b0c1-4805-a8db-874f4bf15dee",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a0f59be8-098a-4fbf-a9c9-1cdf21dd3842",
+                            Id = "e03dc2d2-2ad8-49fe-986e-222fad2430ec",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "baaef82a-18df-4ed9-a255-c971ee31d87a",
+                            Id = "98394f55-dbf2-4585-ac90-6b86834048e4",
                             Name = "Owner",
                             NormalizedName = "OWNER"
                         });
