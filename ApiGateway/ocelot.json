@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000" 
+    "BaseUrl": "http://localhost:5000"
   },
   "Routes": [
     {
@@ -9,7 +9,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071 
+          "Port": 5071
+        },
+        {
+          "Host": "localhost",
+          "Port": 5072
         }
       ],
       "UpstreamPathTemplate": "/api/student",
@@ -17,6 +21,20 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 2,
+        "QuotaExceededMessage": "Rate limit exceeded for student API. Please try again after a short wait."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Currently unable to process your request due to server issues. Please try again later."
+        }
       }
     },
     {
@@ -25,7 +43,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071 
+          "Port": 5071
+        },
+        {
+          "Host": "localhost",
+          "Port": 5072
         }
       ],
       "UpstreamPathTemplate": "/api/student/{id}",
@@ -33,6 +55,20 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 2,
+        "QuotaExceededMessage": "Rate limit exceeded for student detail API. Please wait and try again."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Unable to retrieve student details at this moment. Please try again later."
+        }
       }
     },
     {
@@ -41,7 +77,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5050 
+          "Port": 5050
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
@@ -50,6 +86,20 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": null,
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 2,
+        "QuotaExceededMessage": "Rate limit exceeded for authentication API. Please wait before trying again."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Authentication service is currently unavailable. Please try again later."
+        }
       }
     }
   ]

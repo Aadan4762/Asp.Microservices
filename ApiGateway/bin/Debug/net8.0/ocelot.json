@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000" // API Gateway's port
+    "BaseUrl": "http://localhost:5000"
   },
   "Routes": [
     {
@@ -9,14 +9,32 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071 // Port for Student microservice
+          "Port": 5071
+        },
+        {
+          "Host": "localhost",
+          "Port": 5072
         }
       ],
-      "UpstreamPathTemplate": "/student",
+      "UpstreamPathTemplate": "/api/student",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 10,
+        "QuotaExceededMessage": "Rate limit exceeded for student API. Please try again after a short wait."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Currently unable to process your request due to server issues. Please try again later."
+        }
       }
     },
     {
@@ -25,14 +43,32 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071 // Port for Student microservice
+          "Port": 5071
+        },
+        {
+          "Host": "localhost",
+          "Port": 5072
         }
       ],
-      "UpstreamPathTemplate": "/student/{id}",
+      "UpstreamPathTemplate": "/api/student/{id}",
       "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 50,
+        "QuotaExceededMessage": "Rate limit exceeded for student detail API. Please wait and try again."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Unable to retrieve student details at this moment. Please try again later."
+        }
       }
     },
     {
@@ -41,15 +77,29 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5050 // Port for Auth microservice
+          "Port": 5050
         }
       ],
-      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamPathTemplate": "/api/auth/{everything}",
       "UpstreamHttpMethod": [ "POST", "GET" ],
       "RouteIsCaseSensitive": false,
       "AuthenticationOptions": {
         "AuthenticationProviderKey": null,
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 10,
+        "Limit": 20,
+        "QuotaExceededMessage": "Rate limit exceeded for authentication API. Please wait before trying again."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Authentication service is currently unavailable. Please try again later."
+        }
       }
     }
   ]

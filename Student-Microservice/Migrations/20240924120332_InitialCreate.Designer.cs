@@ -11,7 +11,7 @@ using Student_Microservice.Data;
 namespace Student_Microservice.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240924090852_InitialCreate")]
+    [Migration("20240924120332_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
