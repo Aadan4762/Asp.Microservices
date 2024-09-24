@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
+    "BaseUrl": "http://localhost:5000" // API Gateway's port
   },
   "Routes": [
     {
@@ -9,11 +9,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071
+          "Port": 5071 // Port for Student microservice
         }
       ],
-      "UpstreamPathTemplate": "/api/student",
-      "UpstreamHttpMethod": ["GET", "POST"],
+      "UpstreamPathTemplate": "/student",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -25,11 +25,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5071
+          "Port": 5071 // Port for Student microservice
         }
       ],
-      "UpstreamPathTemplate": "/api/student/{id}",
-      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"],
+      "UpstreamPathTemplate": "/student/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -41,11 +41,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5050
+          "Port": 5050 // Port for Auth microservice
         }
       ],
-      "UpstreamPathTemplate": "/api/auth/{everything}",
-      "UpstreamHttpMethod": ["POST", "GET"],
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
       "RouteIsCaseSensitive": false,
       "AuthenticationOptions": {
         "AuthenticationProviderKey": null,

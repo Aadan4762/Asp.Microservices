@@ -51,19 +51,19 @@ namespace User_Service.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a6cec11e-b0c1-4805-a8db-874f4bf15dee",
+                            Id = "3f1aa6b9-7845-49c2-bc76-81af27f76047",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "e03dc2d2-2ad8-49fe-986e-222fad2430ec",
+                            Id = "9f6d9216-d6a3-425e-96df-036bfe18d9da",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "98394f55-dbf2-4585-ac90-6b86834048e4",
+                            Id = "2db9c276-0dce-4cbd-8551-6571a7b70cc4",
                             Name = "Owner",
                             NormalizedName = "OWNER"
                         });
