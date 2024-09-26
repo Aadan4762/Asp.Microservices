@@ -17,7 +17,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/student",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamHttpMethod": ["GET", "POST"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -27,7 +27,7 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "PeriodTimespan": 60,
-        "Limit": 2,
+        "Limit": 5,
         "QuotaExceededMessage": "Rate limit exceeded for student API. Please try again after a short wait."
       },
       "LoadBalancerOptions": {
@@ -51,7 +51,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/student/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -61,7 +61,7 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "PeriodTimespan": 60,
-        "Limit": 2,
+        "Limit": 5,
         "QuotaExceededMessage": "Rate limit exceeded for student detail API. Please wait and try again."
       },
       "LoadBalancerOptions": {
@@ -81,7 +81,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
-      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "UpstreamHttpMethod": ["POST", "GET"],
       "RouteIsCaseSensitive": false,
       "AuthenticationOptions": {
         "AuthenticationProviderKey": null,
@@ -92,13 +92,73 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "PeriodTimespan": 60,
-        "Limit": 2,
+        "Limit": 5,
         "QuotaExceededMessage": "Rate limit exceeded for authentication API. Please wait before trying again."
       },
       "LoadBalancerOptions": {
         "Type": "RoundRobin",
         "FailoverOptions": {
           "FailoverMessage": "Authentication service is currently unavailable. Please try again later."
+        }
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/course",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5174
+        }
+      ],
+      "UpstreamPathTemplate": "/api/course",
+      "UpstreamHttpMethod": ["POST", "GET"],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 2,
+        "QuotaExceededMessage": "Rate limit exceeded for course API. Please try again after a short wait."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Currently unable to process your request due to server issues. Please try again later."
+        }
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/course/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5174
+        }
+      ],
+      "UpstreamPathTemplate": "/api/course/{id}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5,
+        "QuotaExceededMessage": "Rate limit exceeded for course detail API. Please wait and try again."
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "FailoverOptions": {
+          "FailoverMessage": "Unable to retrieve course details at this moment. Please try again later."
         }
       }
     }
